@@ -5,14 +5,10 @@ const fs = require('fs');
 const path = require('path');
 const filenamify = require('filenamify');
 
-const simpleGit = require('simple-git');
+const GitClient = require('simple-git');
 const GitHubClient = require('github');
 
 const createLogger = require('loggety-mclogface');
-
-/* flag to disable GitHub repo creation */
-const GITHUB = process.argv[2] !== '--no-github';
-
 const colors = require('colors/safe');
 
 const stdlog =
@@ -21,6 +17,10 @@ const stdcmd =
 	createLogger({ type: 'info', color: 'white' });
 const stderr =
 	createLogger({ type: 'error', color: 'red'});
+
+/* flag to disable GitHub repo creation */
+const GITHUB =
+	process.argv[2] !== '--no-github';
 
 /* handy globals */
 var name, description, author;
@@ -149,7 +149,7 @@ promisify(prompt.get)({
 .then(() => {
 	stdcmd('git init');
 
-	git = simpleGit(projectDir);
+	git = GitClient(projectDir);
 	return promisify(git.init.bind(git))();
 })
 /* git add ./* */
