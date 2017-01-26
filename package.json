@@ -1,0 +1,9 @@
+{
+  "name": "init-npm-project",
+  "version": "1.0.0",
+  "description": "minimal setup for an npm project",
+  "main": "dist/index.js",
+  "repository": "https://github.com/mattecapu/init-npm-project",
+  "author": "Matteo Capucci <mattecapu@live.it>",
+  "license": "MIT"
+}
