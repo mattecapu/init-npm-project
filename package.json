@@ -2,8 +2,20 @@
   "name": "init-npm-project",
   "version": "1.0.0",
   "description": "minimal setup for an npm project",
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "repository": "https://github.com/mattecapu/init-npm-project",
   "author": "Matteo Capucci <mattecapu@live.it>",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=5.0.0"
+  },
+  "dependencies": {
+    "colors": "1.1.2",
+    "filenamify": "2.0.0",
+    "github": "8.1.1",
+    "loggety-mclogface": "1.0.1",
+    "promisify-function": "1.3.2",
+    "prompt": "1.0.0",
+    "simple-git": "1.65.0"
+  }
 }

@@ -1,5 +1,5 @@
-# init-repo
-### minimal setup for an npm project
+# init-npm-project
+### arrange a minimal setup for an npm project
 
 ## Installation
 This package is best consumed as a CLI command, so

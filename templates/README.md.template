@@ -1,0 +1,6 @@
+module.exports =
+	'# {package_name}\n' +
+	'### {package_description}\n\n' +
+
+	'## License\n' +
+	'MIT\n';

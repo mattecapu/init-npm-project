@@ -1,0 +1,8 @@
+module.exports =
+	'node_modules\n' +
+	'npm-debug.log*\n' +
+
+	'.npm\n' +
+	'*.tgz\n' +
+
+	'.yarn-integrity\n';
