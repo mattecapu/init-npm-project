@@ -1,3 +1,7 @@
+#! /usr/bin/env node
+
+'use strict';
+
 const prompt = require('prompt');
 const promisify = require('promisify-function').default;
 
