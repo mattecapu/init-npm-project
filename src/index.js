@@ -68,11 +68,11 @@ promisify(prompt.get)({
 	return promisify(prompt.get)({
 		properties: {
 			username: {
-				description: 'Your GitHub username',
+				description: colors.yellow('Your GitHub username'),
 				required: true
 			},
 			password: {
-				description: 'Your GitHub password',
+				description: colors.yellow('Your GitHub password'),
 				hidden: true,
 				required: true
 			}
