@@ -9,10 +9,21 @@ npm install --global init-npm-project
 
 ## Usage
 ```bash
-init-npm-project [--no-github] [--no-mkdir]
+init-npm-project [--name] [--description] [--author] [--no-github] [--no-mkdir]
 ```
+By default, name, description and author name are asked before creation. If you like one-liners, you may provide them using the named args.<br />
+GitHub credentials cannot be provided as args, you always have to type them.
 
 ![console output](https://raw.githubusercontent.com/mattecapu/init-npm-project/master/screen.png)
+
+#### `--name`
+The name of your next project.
+
+#### `--description`
+The description of you next project.
+
+#### `--author`
+Your name (and optionally email). This gets directly dumped in the `package.json` author field.
 
 #### `--no-mkdir`
 Do not create a dir but use an existent one.<br />

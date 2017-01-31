@@ -35,14 +35,30 @@ const SKIP_MKDIR =
 	argv['mkdir'] === false;
 
 /* handy globals */
-var name, description, author;
-var githubCredentials;
-var git;
+var name =
+	argv.name || '';
+var description =
+	argv.description || '';
+var author =
+	argv.author || '';
+
 var projectDir;
 var githubUrl;
 
+var githubCredentials;
+var git;
+
 prompt.message = '';
 prompt.start();
+
+prompt.override = {
+	name:
+		name,
+	description:
+		description,
+	author:
+		author
+};
 
 promisify(prompt.get)({
 	properties: {
