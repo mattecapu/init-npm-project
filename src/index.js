@@ -15,6 +15,8 @@ const GitHubClient = require('github');
 const createLogger = require('loggety-mclogface');
 const colors = require('colors/safe');
 
+const minimist = require('minimist');
+
 const stdlog =
 	createLogger({ type: 'info', color: 'yellow'});
 const stdcmd =
@@ -22,9 +24,15 @@ const stdcmd =
 const stderr =
 	createLogger({ type: 'error', color: 'red'});
 
-/* flag to disable GitHub repo creation */
-const GITHUB =
-	process.argv[2] !== '--no-github';
+const argv =
+	minimist(process.argv.slice(2));
+
+/* disable GitHub repo creation */
+const NO_GITHUB =
+	argv['github'] === false;
+/* disable dir creation */
+const SKIP_MKDIR =
+	argv['mkdir'] === false;
 
 /* handy globals */
 var name, description, author;
@@ -63,7 +71,7 @@ promisify(prompt.get)({
 })
 /* get GitHub settings */
 .then(() => {
-	if (!GITHUB) return;
+	if (NO_GITHUB) return;
 
 	return promisify(prompt.get)({
 		properties: {
@@ -89,6 +97,8 @@ promisify(prompt.get)({
 .then(() => {
 	projectDir =
 		filenamify(name);
+
+	if (SKIP_MKDIR) return;
 
 	stdlog('Creating dir \'' + projectDir + '\'...');
 	stdcmd('mkdir', projectDir);
@@ -133,7 +143,7 @@ promisify(prompt.get)({
 			'MIT'
 	};
 
-	if (GITHUB) {
+	if (!NO_GITHUB) {
 		packagejson.repository =
 			githubUrl;
 	}
@@ -167,7 +177,7 @@ promisify(prompt.get)({
 	return promisify(git.commit.bind(git))("✨ initial setup ✨");
 })
 .then(() => {
-	if (!GITHUB) return;
+	if (NO_GITHUB) return;
 
 	stdlog('Setting up GitHub...');
 

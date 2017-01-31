@@ -9,12 +9,17 @@ npm install --global init-npm-project
 
 ## Usage
 ```bash
-init-npm-project [--no-github]
+init-npm-project [--no-github] [--no-mkdir]
 ```
 
 ![console output](https://raw.githubusercontent.com/mattecapu/init-npm-project/master/screen.png)
 
-If the `--no-github` flag is specified, no GitHub operations will be done.<br />
+#### `--no-mkdir`
+Do not create a dir but use an existent one.<br />
+Be careful because the tool may overwrite existing files (`package.json`, `README.md`, `.gitignore`).
+
+#### `--no-github`
+If this flag is specified, nothing GitHub-related will be done.<br />
 Otherwise, the tool will ask for your GitHub credentials (which are not stored in any way, you can check the code).
 
 ## License
